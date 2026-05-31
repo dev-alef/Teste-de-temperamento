@@ -4,7 +4,7 @@
 
 ## 🌐 Acesse o site
 
-[Clique aqui para fazer o teste](#) <!-- substitua pelo link do GitHub Pages -->
+[Clique aqui para fazer o teste](https://dev-alef.github.io/Teste-de-temperamento/) <!-- substitua pelo link do GitHub Pages -->
 
 ---
 
