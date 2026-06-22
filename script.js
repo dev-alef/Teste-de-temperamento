@@ -160,6 +160,7 @@ function mostrarPergunta() {
         <div id="opcoes">
             <p onclick="selecionarOpcao(3, this)">Me identifico totalmente</p>
             <p onclick="selecionarOpcao(2, this)">Me identifico bastante</p>
+            <p onclick="selecionarOpcao(1.5, this)">Neutro</p>
             <p onclick="selecionarOpcao(1, this)">Me identifico pouco</p>
             <p onclick="selecionarOpcao(0, this)">Não me identifico</p>
         </div>
@@ -209,11 +210,30 @@ function responder() {
 function mostrarResultado() {
     const temperamentos = Object.keys(pontuacao);
     
-    const vencedor = temperamentos.reduce((a, b) => 
-        pontuacao[a] > pontuacao[b] ? a : b
-    );
+   const vencedor = temperamentos.reduce((a, b) => 
+    pontuacao[a] > pontuacao[b] ? a : b
+);
 
-    const resultado = resultados[vencedor];
+// Verifica empate
+const segundo = temperamentos.filter(t => t !== vencedor)
+    .reduce((a, b) => pontuacao[a] > pontuacao[b] ? a : b);
+
+if (pontuacao[vencedor] === pontuacao[segundo]) {
+    questionsTela.classList.remove('visivel');
+    resultTela.classList.add('visivel');
+    window.scrollTo(0, 0);
+    
+    resultTela.innerHTML = `
+        <h1>Você tem um perfil bastante equilibrado!</h1>
+        <p>Seus temperamentos dominantes são <strong>${vencedor}</strong> e <strong>${segundo}</strong> com a mesma pontuação.</p>
+        <p>Isso significa que você combina características dos dois — uma mistura bastante poderosa!</p>
+        <button onclick="iniciarTeste()">Voltar ao início</button>
+    `;
+    return;
+}
+
+// Se não há empate, continua com o resultado normal
+const resultado = resultados[vencedor];
     const outros = Object.keys(resultado.relacionamentos);
     
     questionsTela.classList.remove('visivel');
