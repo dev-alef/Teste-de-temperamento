@@ -211,3 +211,53 @@ button.ativa {
     background-color: #3C3489;
     border-bottom: 2px solid #fff;
 }
+
+/* ===== CONTATO & CRÉDITO ===== */
+#contato {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 2rem;
+    padding-top: 1.25rem;
+    border-top: 0.5px solid #3e3d38;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+#instagram-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #a09faf;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+#instagram-link:hover {
+    color: #c77dff;
+    transform: translateY(-1px);
+}
+
+#instagram-link svg {
+    flex-shrink: 0;
+    transition: stroke 0.2s ease;
+}
+
+#instagram-link:hover svg {
+    stroke: #c77dff;
+}
+
+#dev-credit {
+    font-size: 12px;
+    color: #5a594e;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+#dev-credit:hover {
+    color: #a09faf;
+}
